@@ -7,6 +7,9 @@ import java.util.ArrayList;
 
 public class LoadConverters {
 
+    /**
+     *
+     */
     public static ArrayList<IConverterMaster> InstaceConverters() {
         ArrayList<IConverterMaster> listClasses = new ArrayList<>();
 
