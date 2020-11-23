@@ -14,8 +14,7 @@ public class MilliLitreConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
+    public String toString() {
         String textComboBox = String.format("Millilitre (ml) [%s]: %s", MeasureType.VOLUME.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;

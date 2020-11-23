@@ -14,8 +14,7 @@ public class NanometreConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
+    public String toString() {
         String textComboBox = String.format("nanometre (nm) [%s]: %s", MeasureType.DISTANCE.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;

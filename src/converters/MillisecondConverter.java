@@ -14,8 +14,7 @@ public class MillisecondConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
+    public String toString() {
         String textComboBox = String.format("millisecond (ms) [%s]: %s", MeasureType.TIME.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;

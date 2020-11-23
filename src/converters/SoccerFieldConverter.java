@@ -14,8 +14,7 @@ public class SoccerFieldConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
+    public String toString() {
         String textComboBox = String.format("soccer field (FIFA) (--)  [%s]: %s", MeasureType.AREA.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;

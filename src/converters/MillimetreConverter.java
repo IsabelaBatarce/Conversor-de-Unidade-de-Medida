@@ -14,8 +14,7 @@ public class MillimetreConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
+    public String toString() {
         String textComboBox = String.format("millimetre (mm) [%s]: %s", MeasureType.DISTANCE.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;

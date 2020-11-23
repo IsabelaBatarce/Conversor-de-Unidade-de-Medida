@@ -14,8 +14,7 @@ public class CentimetreConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
+    public String toString() {
         String textComboBox = String.format("centimetre (cm) [%s]: %s", MeasureType.DISTANCE.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;

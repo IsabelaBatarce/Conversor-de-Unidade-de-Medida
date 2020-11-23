@@ -14,9 +14,8 @@ public class CubicCentimetreConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
-        String textComboBox = String.format("cubic centimetre (cm³) [%s]: %s", MeasureType.VOLUME.getTypeString(), getClass().getCanonicalName());
+    public String toString() {
+        String textComboBox = String.format("cubic centimetre (cmï¿½) [%s]: %s", MeasureType.VOLUME.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;
     }

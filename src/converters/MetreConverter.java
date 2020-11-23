@@ -14,8 +14,7 @@ public class MetreConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
+    public String toString() {
         String textComboBox = String.format("metre (m) [%s]: %s", MeasureType.DISTANCE.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;

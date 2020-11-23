@@ -1,20 +1,17 @@
 package code;
 
+import converters.IConverterMaster;
+
 import java.io.File;
 import java.util.ArrayList;
-import converters.CentimetreConverter;
-import converters.IConverterMaster;
 
 public class LoadConverters {
 
     public static ArrayList<IConverterMaster> InstaceConverters() {
         ArrayList<IConverterMaster> listClasses = new ArrayList<>();
 
-
         String basePath = System.getProperty("user.dir");
         String dirPath = String.format("%s\\%s", basePath, "src\\converters\\");
-
-        System.out.println(dirPath);
 
         File dir = new File(dirPath);
         File[] directoryListing = dir.listFiles();

@@ -14,8 +14,7 @@ public class KilometreConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
+    public String toString() {
         String textComboBox = String.format("kilometre (km) [%s]: %s", MeasureType.DISTANCE.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;

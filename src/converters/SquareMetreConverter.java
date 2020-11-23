@@ -14,9 +14,8 @@ public class SquareMetreConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
-        String textComboBox = String.format("square metre (m²) [%s]: %s", MeasureType.AREA.getTypeString(), getClass().getCanonicalName());
+    public String toString() {
+        String textComboBox = String.format("square metre (mï¿½) [%s]: %s", MeasureType.AREA.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;
     }

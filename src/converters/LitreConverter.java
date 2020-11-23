@@ -14,8 +14,7 @@ public class LitreConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
+    public String toString() {
         String textComboBox = String.format("litre (l) [%s]: %s", MeasureType.VOLUME.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;

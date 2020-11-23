@@ -14,9 +14,8 @@ public class MicrometreConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
-        String textComboBox = String.format("micrometre (µm) [%s]: %s", MeasureType.DISTANCE.getTypeString(), getClass().getCanonicalName());
+    public String toString() {
+        String textComboBox = String.format("micrometre (ï¿½m) [%s]: %s", MeasureType.DISTANCE.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;
     }

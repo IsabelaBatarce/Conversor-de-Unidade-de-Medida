@@ -3,8 +3,8 @@ package code;
 public class MasterGUI {
     public static void main(String[] args) {
         try {
-            Interface mylayout = new Interface("Interface");            
-            mylayout.setVisible(true);
+            MainWindow program = new MainWindow(Info.getLongVersion());
+            program.go();
         } catch (Exception exceptionValue) {
             printError(exceptionValue.getMessage());
             exceptionValue.printStackTrace();

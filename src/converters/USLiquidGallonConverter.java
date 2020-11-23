@@ -14,8 +14,7 @@ public class USLiquidGallonConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
+    public String toString() {
         String textComboBox = String.format("US liquid gallon (gal) [%s]: %s", MeasureType.VOLUME.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;

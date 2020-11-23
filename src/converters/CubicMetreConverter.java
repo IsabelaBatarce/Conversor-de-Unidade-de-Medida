@@ -14,9 +14,8 @@ public class CubicMetreConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
-        String textComboBox = String.format("cubic metre (m³) [%s]: %s", MeasureType.VOLUME.getTypeString(), getClass().getCanonicalName());
+    public String toString() {
+        String textComboBox = String.format("cubic metre (mï¿½) [%s]: %s", MeasureType.VOLUME.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;
     }

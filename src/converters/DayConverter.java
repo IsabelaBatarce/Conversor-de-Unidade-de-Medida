@@ -14,8 +14,7 @@ public class DayConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
+    public String toString() {
         String textComboBox = String.format("day (d) [%s]: %s", MeasureType.TIME.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;

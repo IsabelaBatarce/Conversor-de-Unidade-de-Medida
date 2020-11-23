@@ -14,8 +14,7 @@ public class MonthConverter implements IConverterMaster {
         return this.fromBasicUnit(sourceMeasurement.toBasicUnit(value));
     }
 
-    public String toString()
-    {
+    public String toString() {
         String textComboBox = String.format("month (m) [%s]: %s", MeasureType.TIME.getTypeString(), getClass().getCanonicalName());
 
         return textComboBox;
