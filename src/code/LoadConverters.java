@@ -20,7 +20,8 @@ public class LoadConverters {
                 try {
                     if (child.getName().contains("Converter") && !child.getName().startsWith("I")) {
                         String classFileName = String.format("%s.%s", "converters", child.getName().replaceAll("\\.\\w+", ""));
-                        listClasses.add((IConverterMaster) Class.forName(classFileName).newInstance());
+                        listClasses.add((IConverterMaster) Class.forName(classFileName).newInstance());                       
+                        
                     }
                 } catch (InstantiationException e) {
                     System.out.println("\nError instancing class. " + e.getMessage());

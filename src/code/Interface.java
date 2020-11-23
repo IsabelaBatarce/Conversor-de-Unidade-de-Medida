@@ -1,6 +1,5 @@
 package code;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 import converters.IConverterMaster;
 
 import javax.swing.*;
@@ -13,8 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Interface extends JFrame {
-    private final JTextField txtFromValue;
+public class Interface extends JFrame {    
+	private static final long serialVersionUID = 1L;
+	private final JTextField txtFromValue;
     private final JTextField txtToValue;
     private final JTextField txtUnitConverters;
 
@@ -25,7 +25,7 @@ public class Interface extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        JComboBox cbToMeasurements = new JComboBox();
+        JComboBox<Object> cbToMeasurements = new JComboBox<Object>();
         cbToMeasurements.setMaximumRowCount(15);
         cbToMeasurements.setBounds(382, 89, 454, 62);
         getContentPane().add(cbToMeasurements);
@@ -66,7 +66,7 @@ public class Interface extends JFrame {
         txtToValue.setBounds(188, 89, 184, 62);
         getContentPane().add(txtToValue);
 
-        JComboBox cbFromMeasurements = new JComboBox();
+        JComboBox<Object> cbFromMeasurements = new JComboBox<Object>();
         cbFromMeasurements.setMaximumRowCount(15);
         cbFromMeasurements.setBounds(382, 16, 454, 62);
         getContentPane().add(cbFromMeasurements);
@@ -115,20 +115,15 @@ public class Interface extends JFrame {
 
                 if (!(ch >= '0' && ch <= '9') && ch != '.' && ch != '\b' && e.getKeyCode() != 0) {
                     e.consume();
-                } else if (cbFromMeasurements.getSelectedIndex() == -1) {
-                    JOptionPane.showMessageDialog(null, "It is necessary to select the \"from measurement\"");
-                    e.consume();
-                } else if (cbToMeasurements.getSelectedIndex() == -1) {
-                    JOptionPane.showMessageDialog(null, "It is necessary to select the \"to measurement\"");
-                    e.consume();
-                } else {
+                } 
+                else {
                     doConvert(cbFromMeasurements, cbToMeasurements, txtFromValue, txtToValue, e);
                 }
             }
         });
     }
 
-    private static void doConvert(JComboBox cbFromMeasurements, JComboBox cbToMeasurements, JTextField txtFromValue, JTextField txtToValue, KeyEvent e) {
+    private static void doConvert(JComboBox<Object> cbFromMeasurements, JComboBox<Object> cbToMeasurements, JTextField txtFromValue, JTextField txtToValue, KeyEvent e) {
         IConverterMaster fromConverter = (IConverterMaster) cbFromMeasurements.getSelectedItem();
         IConverterMaster toConverter = (IConverterMaster) cbToMeasurements.getSelectedItem();
 
@@ -138,30 +133,12 @@ public class Interface extends JFrame {
             value += e.getKeyChar();
 
         if (!value.isEmpty() && toConverter != null) {
-            try {
-                txtToValue.setText(toConverter.convert(fromConverter, Double.parseDouble(value)).toString());
-            } catch (ParseException error) {
-
-            }
+        	txtToValue.setText(toConverter.convert(fromConverter, Double.parseDouble(value)).toString());
 
         }
     }
 
-    private static JButton getButtonSubComponent(Container container) {
-        if (container instanceof JButton) {
-            return (JButton) container;
-        } else {
-            Component[] components = container.getComponents();
-            for (Component component : components) {
-                if (component instanceof Container) {
-                    return getButtonSubComponent((Container) component);
-                }
-            }
-        }
-        return null;
-    }
-
-    private static void addToMeasurementsItens(JComboBox cbFromMeasurements, JComboBox cbToMeasurements, List<IConverterMaster> listMeasurements) {
+    private static void addToMeasurementsItens(JComboBox<Object> cbFromMeasurements, JComboBox<Object> cbToMeasurements, List<IConverterMaster> listMeasurements) {
         cbToMeasurements.removeAllItems();
 
         String sourceMeasurementItem = cbFromMeasurements.getSelectedItem().toString();
@@ -174,5 +151,3 @@ public class Interface extends JFrame {
         }
     }
 }
-
-	
