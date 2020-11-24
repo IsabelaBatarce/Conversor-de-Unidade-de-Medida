@@ -51,6 +51,9 @@ public final class MsgScreen extends JDialog implements ActionListener {
         this.setVisible(true);
     }
 
+    /**
+     * @param arg0
+     */
     @Override
     public void actionPerformed(ActionEvent arg0) {
         this.setVisible(false);

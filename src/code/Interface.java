@@ -12,9 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Interface extends JFrame {    
-	private static final long serialVersionUID = 1L;
-	private final JTextField txtFromValue;
+/**
+ * Classe responsavel pela interface de conversão do sistema
+ */
+public class Interface extends JFrame {
+    private static final long serialVersionUID = 1L;
+    private final JTextField txtFromValue;
     private final JTextField txtToValue;
     private final JTextField txtUnitConverters;
 
@@ -25,6 +28,9 @@ public class Interface extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        /**
+         * ComboBox com as medidas de conversão
+         */
         JComboBox<Object> cbToMeasurements = new JComboBox<Object>();
         cbToMeasurements.setMaximumRowCount(15);
         cbToMeasurements.setBounds(382, 89, 454, 62);
@@ -115,15 +121,23 @@ public class Interface extends JFrame {
 
                 if (!(ch >= '0' && ch <= '9') && ch != '.' && ch != '\b' && e.getKeyCode() != 0) {
                     e.consume();
-                } 
-                else {
+                } else {
                     doConvert(cbFromMeasurements, cbToMeasurements, txtFromValue, txtToValue, e);
                 }
             }
         });
     }
 
-    private static void doConvert(JComboBox<Object> cbFromMeasurements, JComboBox<Object> cbToMeasurements, JTextField txtFromValue, JTextField txtToValue, KeyEvent e) {
+    /**
+     * @param cbFromMeasurements
+     * @param cbToMeasurements
+     * @param txtFromValue
+     * @param txtToValue
+     * @param e                  Pega o item selecionado do comboBox os convete pela
+     *                           IConverterMaster, as valida e realiza a conversão
+     */
+    private static void doConvert(JComboBox<Object> cbFromMeasurements, JComboBox<Object> cbToMeasurements,
+            JTextField txtFromValue, JTextField txtToValue, KeyEvent e) {
         IConverterMaster fromConverter = (IConverterMaster) cbFromMeasurements.getSelectedItem();
         IConverterMaster toConverter = (IConverterMaster) cbToMeasurements.getSelectedItem();
 
@@ -133,18 +147,27 @@ public class Interface extends JFrame {
             value += e.getKeyChar();
 
         if (!value.isEmpty() && toConverter != null) {
-        	txtToValue.setText(toConverter.convert(fromConverter, Double.parseDouble(value)).toString());
+            txtToValue.setText(toConverter.convert(fromConverter, Double.parseDouble(value)).toString());
 
         }
     }
 
-    private static void addToMeasurementsItens(JComboBox<Object> cbFromMeasurements, JComboBox<Object> cbToMeasurements, List<IConverterMaster> listMeasurements) {
+    /**
+     * @param cbFromMeasurements
+     * @param cbToMeasurements
+     * @param listMeasurements   Responsavel por adicionar as unidades de conversão
+     *                           do mesmo tipo
+     */
+    private static void addToMeasurementsItens(JComboBox<Object> cbFromMeasurements, JComboBox<Object> cbToMeasurements,
+            List<IConverterMaster> listMeasurements) {
         cbToMeasurements.removeAllItems();
 
         String sourceMeasurementItem = cbFromMeasurements.getSelectedItem().toString();
-        String filter = sourceMeasurementItem.substring(sourceMeasurementItem.indexOf("["), sourceMeasurementItem.lastIndexOf("]"));
+        String filter = sourceMeasurementItem.substring(sourceMeasurementItem.indexOf("["),
+                sourceMeasurementItem.lastIndexOf("]"));
 
-        List<Object> listToMeasurements = listMeasurements.stream().filter(x -> x.toString().contains(filter)).collect(Collectors.toList());
+        List<Object> listToMeasurements = listMeasurements.stream().filter(x -> x.toString().contains(filter))
+                .collect(Collectors.toList());
 
         for (Object clazz : listToMeasurements) {
             cbToMeasurements.addItem(clazz);

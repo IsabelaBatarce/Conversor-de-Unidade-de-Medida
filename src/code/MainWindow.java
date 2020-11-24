@@ -5,6 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Responsavel pela janela inicial aberta assim que o código e executado
+ */
 class MainWindow extends JFrame implements ActionListener {
     private static final long serialVersionUID = 1L;
     private JPanel statusPanel;
@@ -18,7 +21,6 @@ class MainWindow extends JFrame implements ActionListener {
     private JMenuItem menuItemDisclaimer;
     private JMenuItem menuItemAbout;
 
-
     MainWindow(String title) throws HeadlessException {
         super(title);
         setupWindow();
@@ -29,6 +31,10 @@ class MainWindow extends JFrame implements ActionListener {
         this.setStatus(Info.getLongVersion());
     }
 
+    /**
+     * @param actionEvent Responsavel por definir as ações tomadas ao clicar os
+     *                    botoes do menu
+     */
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         if (actionEvent.getSource() == this.menuItemExit) {
@@ -55,6 +61,11 @@ class MainWindow extends JFrame implements ActionListener {
         }
     }
 
+    /**
+     * @param listener
+     * @param menu
+     * 
+     */
     private void bindItems(ActionListener listener, JMenu menu) {
         for (Component target : menu.getMenuComponents()) {
             if (target instanceof JMenuItem) {
@@ -71,12 +82,23 @@ class MainWindow extends JFrame implements ActionListener {
         }
     }
 
+    /**
+     * @param label
+     * @param shortcut
+     * @return JMenu Responsavel por criar um menu customizado
+     */
     private JMenu createCustomizedMenu(String label, char shortcut) {
         JMenu temp = new JMenu(label);
         temp.setMnemonic(shortcut);
         return (temp);
     }
 
+    /**
+     * @param label
+     * @param shortcut
+     * @return JMenuItem
+     * 
+     */
     private JMenuItem createCustomizedMenuItem(String label, char shortcut) {
         JMenuItem temp = new JMenuItem(label);
         temp.setMnemonic(shortcut);
@@ -87,10 +109,16 @@ class MainWindow extends JFrame implements ActionListener {
         System.exit(0);
     }
 
+    /**
+     * Responsavel por tornar a interface visivel
+     */
     void go() {
         this.setVisible(true);
     }
 
+    /**
+     * @param message
+     */
     void setStatus(String message) {
         statusLabel.setText(message);
     }
@@ -99,6 +127,9 @@ class MainWindow extends JFrame implements ActionListener {
         setupStatusPanel();
     }
 
+    /**
+     * Responsavel por setar os dados dos menus
+     */
     private void setupMenus() {
         menuFile = createCustomizedMenu("File", 'F');
         menuHelp = createCustomizedMenu("Help", 'H');
@@ -139,7 +170,8 @@ class MainWindow extends JFrame implements ActionListener {
     }
 
     private void setupWindow() {
-        this.setSize((int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth() * 0.3), (int) (Toolkit.getDefaultToolkit().getScreenSize().getHeight() * 0.3));
+        this.setSize((int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth() * 0.3),
+                (int) (Toolkit.getDefaultToolkit().getScreenSize().getHeight() * 0.3));
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(new BorderLayout(2, 2));

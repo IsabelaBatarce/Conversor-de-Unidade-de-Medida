@@ -5,11 +5,12 @@ import converters.IConverterMaster;
 import java.io.File;
 import java.util.ArrayList;
 
+/**
+ * Pega os dados, os instacia e valida e preeche o combo box
+ */
+
 public class LoadConverters {
 
-    /**
-     *
-     */
     public static ArrayList<IConverterMaster> InstaceConverters() {
         ArrayList<IConverterMaster> listClasses = new ArrayList<>();
 
@@ -22,9 +23,10 @@ public class LoadConverters {
             for (File child : directoryListing) {
                 try {
                     if (child.getName().contains("Converter") && !child.getName().startsWith("I")) {
-                        String classFileName = String.format("%s.%s", "converters", child.getName().replaceAll("\\.\\w+", ""));
-                        listClasses.add((IConverterMaster) Class.forName(classFileName).newInstance());                       
-                        
+                        String classFileName = String.format("%s.%s", "converters",
+                                child.getName().replaceAll("\\.\\w+", ""));
+                        listClasses.add((IConverterMaster) Class.forName(classFileName).newInstance());
+
                     }
                 } catch (InstantiationException e) {
                     System.out.println("\nError instancing class. " + e.getMessage());

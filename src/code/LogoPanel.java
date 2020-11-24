@@ -6,6 +6,10 @@ import java.awt.*;
 public final class LogoPanel extends JPanel {
     private static final long serialVersionUID = 1L;
 
+    /**
+     * @param g 
+     * Pega a logo
+     */
     @Override
     public void paint(Graphics g) {
         super.paint(g);
@@ -17,6 +21,8 @@ public final class LogoPanel extends JPanel {
         int targetWidth = (int) ((this.getHeight() * scale) * aspectRatio);
         int horPosition = (this.getWidth() - targetWidth) / 2;
 
-        auxGraphics.drawImage(auxImage, horPosition, (int) (this.getHeight() * space), horPosition + targetWidth, (int) (this.getHeight() * (1.0 - space)), 0, 0, auxImage.getWidth(null), auxImage.getHeight(null), null);
+        auxGraphics.drawImage(auxImage, horPosition, (int) (this.getHeight() * space), horPosition + targetWidth,
+                (int) (this.getHeight() * (1.0 - space)), 0, 0, auxImage.getWidth(null), auxImage.getHeight(null),
+                null);
     }
 }

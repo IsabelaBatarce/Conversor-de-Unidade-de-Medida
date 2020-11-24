@@ -1,5 +1,4 @@
-This program was written to be a simple educational project that shows how to use the basic of Graphical User Interface (Swing), and some software engineering techniques.
-The aim of the program is show different shapes according to menu choices.
+This program is a unit of measurement converter.
 
 The menu options are very straight: 
 
@@ -10,6 +9,6 @@ The menu options are very straight:
 Technical stuff:
 
 * The program was written in Java 1.8 and runs on most of desktop and notebook operating systems.
-* No user information is collected, stored, or transmitted by the program.
+
 
 
